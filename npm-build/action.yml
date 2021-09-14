@@ -1,0 +1,26 @@
+name: 'NPM Install and Build'
+description: 'Runs two npm commands: install and build.'
+runs:
+  using: "composite"
+  steps:
+    - name: checkout code
+      uses: actions/checkout@v2
+    - name: install deps
+      run: |
+        echo $STATE_repositoryPath
+        ls -la
+        pwd
+        npm install
+      shell: bash
+    # - name: build
+    #   run: npm run build
+    #   shell: bash
+    # - name: upload artifact
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: dist
+    #     path: |
+    #       build
+    #       manifest.yml
+    #       .npmrc
+    #       nginx.config
