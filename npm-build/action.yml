@@ -12,15 +12,15 @@ runs:
         pwd
         npm install
       shell: bash
-    # - name: build
-    #   run: npm run build
-    #   shell: bash
-    # - name: upload artifact
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: dist
-    #     path: |
-    #       build
-    #       manifest.yml
-    #       .npmrc
-    #       nginx.config
+    - name: build
+      run: npm run build
+      shell: bash
+    - name: upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: dist
+        path: |
+          build
+          manifest.yml
+          .npmrc
+          nginx.config
