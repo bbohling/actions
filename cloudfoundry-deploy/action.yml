@@ -41,3 +41,4 @@ runs:
         echo $app-name ${{inputs.cf-username}} ${{inputs.cf-password}}
         cf7 login -u ${{inputs.cf-username}} -p ${{inputs.cf-password}} -a ${{inputs.cf-api-endpoint}} -o ${{inputs.cf-org}} -s production --skip-ssl-validation
         cf7 push ${{inputs.app-name}}-${{inputs.app-layer}}-${{inputs.deploy-environment}} --strategy rolling
+      shell: bash
