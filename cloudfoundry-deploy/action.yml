@@ -1,36 +1,36 @@
 name: 'Deploy to Cloud Foundry'
 description: 'Deploy artifacts to Cloud Foundry.'
+inputs:
+  app-name:
+    description: 'Short name of app used in Cloud Foundry route creation.'
+    required: true
+  app-layer:
+    description: 'Name of app component. Examples: UI, API. Used in Cloud Foundry route creation.'
+    required: true
+  deploy-environment:
+    description: 'Name of the environment deploying to. Examples: dev, test, prod.'
+    required: true
+  cf-org:
+    description: 'Name of the Cloud Foundry org deploying to.'
+    required: true
+  cf-space:
+    description: 'Cloud Foundry target space deploying to. Defaults to: production'
+    required: false
+    default: 'production'
+  cf-api-endpoint:
+    description: 'Cloud Found API endpoint.'
+    required: true
+  cf-username:
+    description: 'Cloud Foundry email account that has access to deploy to Cloud Found org'
+    required: true
+  cf-password:
+    description: 'Password for Cloud Foundry email account that has access to deploy to Cloud Found org'
+    required: true
 runs:
   # runs-on: node14
   # environment:
   #   name: dev
   using: "composite"
-  inputs:
-    app-name:
-      description: 'Short name of app used in Cloud Foundry route creation.'
-      required: true
-    app-layer:
-      description: 'Name of app component. Examples: UI, API. Used in Cloud Foundry route creation.'
-      required: true
-    deploy-environment:
-      description: 'Name of the environment deploying to. Examples: dev, test, prod.'
-      required: true
-    cf-org:
-      description: 'Name of the Cloud Foundry org deploying to.'
-      required: true
-    cf-space:
-      description: 'Cloud Foundry target space deploying to. Defaults to: production'
-      required: false
-      default: 'production'
-    cf-api-endpoint:
-      description: 'Cloud Found API endpoint.'
-      required: true
-    cf-username:
-      description: 'Cloud Foundry email account that has access to deploy to Cloud Found org'
-      required: true
-    cf-password:
-      description: 'Password for Cloud Foundry email account that has access to deploy to Cloud Found org'
-      required: true
   steps:
     - name: download artifact
       uses: actions/download-artifact@v2
