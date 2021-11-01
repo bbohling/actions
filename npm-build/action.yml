@@ -7,10 +7,10 @@ runs:
       uses: actions/checkout@v2
     - name: install deps
       run: npm install
-      shell: bash
+      shell: sh
     - name: build
       run: npm run build
-      shell: bash
+      shell: sh
     - name: upload artifact
       uses: actions/upload-artifact@v2
       with:
