@@ -41,4 +41,4 @@ runs:
         touch secrets.yml
         cf7 login -u ${{inputs.cf-username}} -p ${{inputs.cf-password}} -a ${{inputs.cf-api-endpoint}} -o ${{inputs.cf-org}} -s production --skip-ssl-validation
         cf7 push --vars-file secrets.yml ${{inputs.app-name}}-${{inputs.app-layer}}-${{inputs.deploy-environment}} --strategy rolling
-      shell: bash
+      shell: sh
